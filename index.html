@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="중학교 2학년 정보 교과 데이터 단원 학습 웹페이지">
+  <title>데이터 탐험대 | 중학교 정보</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <button class="toc-mobile-toggle" id="tocToggle" type="button" aria-expanded="false" aria-controls="sideToc">☰ 목차</button>
+  <aside class="side-toc" id="sideToc" aria-label="학습 목차">
+    <div class="toc-head">
+      <a class="brand" href="#home"><span class="brand-mark">D</span><span>데이터 탐험대</span></a>
+      <button class="toc-close" id="tocClose" type="button" aria-label="목차 닫기">×</button>
+    </div>
+    <div class="toc-progress">
+      <div class="toc-progress-copy"><span>학습 진행률</span><strong id="tocProgressPercent">0%</strong></div>
+      <div class="toc-progress-track"><i id="tocProgressBar"></i></div>
+      <small id="tocProgressText">8개 차시 중 0개 완료</small>
+    </div>
+    <nav class="toc-nav">
+      <a href="#home" data-section="home"><span>00</span><b>단원 소개</b></a>
+      <p>학습 차시</p>
+      <div id="tocLessons"></div>
+      <p>탐구 활동</p>
+      <a href="#lab" data-section="lab"><span>＋</span><b>데이터 실습실</b></a>
+      <a href="#project" data-section="project"><span>★</span><b>융합 프로젝트</b></a>
+    </nav>
+    <div class="toc-standard"><span>핵심 질문</span><p>데이터는 실생활의 문제를 어떻게 해결할까?</p></div>
+  </aside>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="데이터 탐험대 홈">
+      <span class="brand-mark">D</span>
+      <span>데이터 탐험대</span>
+    </a>
+    <nav aria-label="주요 메뉴">
+      <a href="#lessons">학습하기</a>
+      <a href="#lab">실습실</a>
+      <a href="#project">프로젝트</a>
+    </nav>
+    <button class="progress-chip" id="progressButton" type="button" aria-label="학습 진행도 보기">
+      <span>나의 진도</span><strong id="progressPercent">0%</strong>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">MIDDLE SCHOOL · INFORMATION</p>
+        <h1>세상을 읽는 힘,<br><em>데이터</em>에서 시작해요.</h1>
+        <p class="hero-description">생활 속 숫자와 기록을 모으고, 연결하고, 의미를 발견하는 8번의 데이터 탐험을 시작해 보세요.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#lessons">첫 번째 탐험 시작</a>
+          <button class="button ghost" id="openStandards" type="button">성취기준 살펴보기</button>
+        </div>
+        <div class="hero-stats" aria-label="수업 정보">
+          <div><strong>8</strong><span>차시</span></div>
+          <div><strong>5</strong><span>성취기준</span></div>
+          <div><strong>1</strong><span>융합 프로젝트</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="data-card card-a"><span>오늘의 걸음</span><strong>8,421</strong><small>어제보다 +12%</small></div>
+        <div class="data-card card-b"><span>교실 온도</span><strong>23.5℃</strong><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="data-card card-c"><span>발견한 관계</span><strong>수면 ↑ 집중도 ↑</strong></div>
+        <div class="visual-center"><span>DATA</span><b>?</b></div>
+      </div>
+    </section>
+
+    <section class="section lessons" id="lessons">
+      <div class="section-heading">
+        <div><p class="eyebrow">LEARNING JOURNEY</p><h2>8번의 탐험, 하나의 발견</h2></div>
+        <p>개념을 배우고 직접 데이터를 다루며<br>한 단계씩 문제 해결 능력을 키워요.</p>
+      </div>
+      <div class="lesson-grid" id="lessonGrid"></div>
+    </section>
+
+    <section class="section lab" id="lab">
+      <div class="section-heading light">
+        <div><p class="eyebrow">DATA LAB</p><h2>직접 만져 보는 데이터</h2></div>
+        <p>친구들의 하루 평균 스마트폰 사용 시간을 입력하고<br>데이터가 그래프로 바뀌는 과정을 관찰해 보세요.</p>
+      </div>
+      <div class="lab-board">
+        <div class="input-panel">
+          <div class="panel-label">01 · 데이터 수집</div>
+          <h3>사용 시간 기록하기</h3>
+          <form id="dataForm">
+            <label>이름 또는 별명<input id="studentName" maxlength="10" placeholder="예: 다온" required></label>
+            <label>하루 사용 시간<input id="screenTime" type="number" min="0" max="12" step="0.5" placeholder="예: 3.5" required><span>시간</span></label>
+            <button class="button coral" type="submit">데이터 추가하기</button>
+          </form>
+          <p class="form-hint">개인정보 대신 별명을 사용해요. 입력 내용은 이 기기에만 저장됩니다.</p>
+        </div>
+        <div class="chart-panel">
+          <div class="chart-top">
+            <div><div class="panel-label">02 · 데이터 구조화</div><h3>한눈에 비교하기</h3></div>
+            <button class="text-button" id="resetData" type="button">처음으로</button>
+          </div>
+          <div class="chart" id="chart" aria-label="스마트폰 사용 시간 막대그래프"></div>
+          <div class="insight" id="insight"><span>분석</span><p>데이터를 추가하면 가장 큰 값과 평균을 알려 줄게요.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section question-section">
+      <div class="question-card">
+        <div class="question-index">QUICK<br>CHECK</div>
+        <div class="question-content">
+          <p class="eyebrow">생각 깨우기</p>
+          <h2>다음 중 ‘데이터에 기반한 해석’은 무엇일까요?</h2>
+          <div class="options" id="quizOptions">
+            <button type="button" data-correct="false"><b>A</b> 비가 올 것 같은 기분이 든다.</button>
+            <button type="button" data-correct="true"><b>B</b> 최근 10년 중 7년은 7월 강수량이 6월보다 많았다.</button>
+            <button type="button" data-correct="false"><b>C</b> 여름에는 언제나 비가 가장 많이 온다.</button>
+          </div>
+          <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section project" id="project">
+      <div class="project-copy">
+        <p class="eyebrow">FINAL MISSION</p>
+        <h2>우리 학교를 바꾸는<br><em>데이터 프로젝트</em></h2>
+        <p>학교생활에서 발견한 문제를 데이터로 설명하고, 모두가 공감할 수 있는 해결책을 제안해 보세요.</p>
+        <div class="project-path" aria-label="프로젝트 진행 순서">
+          <span>문제 발견</span><i></i><span>수집</span><i></i><span>분석</span><i></i><span>제안</span>
+        </div>
+      </div>
+      <div class="topic-list">
+        <button type="button"><span>01</span><b>급식 잔반을 줄이려면?</b><small>환경 × 수학</small></button>
+        <button type="button"><span>02</span><b>스마트폰과 수면의 관계는?</b><small>보건 × 과학</small></button>
+        <button type="button"><span>03</span><b>집중하기 좋은 교실 환경은?</b><small>과학 × 기술</small></button>
+        <button type="button"><span>04</span><b>일회용품을 줄이는 방법은?</b><small>환경 × 사회</small></button>
+      </div>
+    </section>
+  </main>
+
+  <footer><strong>데이터 탐험대</strong><p>중학교 정보 · 데이터 단원 학습 웹사이트</p><a href="#home">맨 위로 ↑</a></footer>
+
+  <dialog id="lessonDialog">
+    <button class="dialog-close" type="button" aria-label="닫기">×</button>
+    <div id="lessonDialogContent"></div>
+  </dialog>
+  <dialog id="standardsDialog">
+    <button class="dialog-close" type="button" aria-label="닫기">×</button>
+    <p class="eyebrow">ACHIEVEMENT STANDARDS</p><h2>이 수업에서 배우는 것</h2>
+    <div class="standards-list" id="standardsList"></div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
