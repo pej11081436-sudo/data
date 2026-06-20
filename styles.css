@@ -48,3 +48,23 @@ body>footer{padding-left:6vw;padding-right:6vw}
   .topbar>.brand span:last-child{display:none}
   .hero,.section{padding-left:22px;padding-right:22px}
 }
+
+/* Full lesson content */
+#lessonDialog{width:min(860px,calc(100% - 30px));max-height:90vh;padding:0;overflow:auto;background:var(--paper)}
+#lessonDialog .dialog-close{position:sticky;display:block;float:right;top:12px;right:14px;z-index:3;width:38px;height:38px;border-radius:50%;background:white;box-shadow:0 4px 18px rgba(16,42,67,.16)}
+#lessonDialogContent{clear:both;padding:0 54px 50px}
+.lesson-detail-head{display:grid;grid-template-columns:76px 1fr;gap:22px;align-items:center;padding:5px 0 30px;border-bottom:1px solid var(--line)}
+.lesson-detail-head .dialog-lesson-icon{display:grid;place-items:center;width:72px;height:72px;border-radius:18px;background:var(--navy);color:var(--mint);font:800 1.7rem Montserrat}
+.lesson-detail-head h2{margin:1px 0 4px;font-size:2rem;color:var(--navy)}
+.lesson-detail-head p{margin:0}.lesson-detail-head .dialog-meta{color:var(--coral);font-size:.78rem}
+.story-box{position:relative;margin:34px 0;padding:30px 32px;background:#eaf7f4;border-radius:12px;border-left:5px solid var(--mint)}
+.story-box span,.concept-box>span,.lesson-quiz-section>span{font:800 .67rem Montserrat;letter-spacing:.14em;color:var(--coral)}
+.story-box h3,.concept-box h3,.lesson-quiz-section h3{margin:7px 0 12px;color:var(--navy);font-size:1.35rem}
+.story-box p{margin:0;line-height:1.85}
+.concept-box{padding:4px 2px 26px}.concept-box ol{list-style:none;counter-reset:concept;padding:0;display:grid;gap:10px}.concept-box li{counter-increment:concept;display:grid;grid-template-columns:34px 1fr;align-items:center;padding:13px 15px;background:white;border:1px solid var(--line);border-radius:8px}.concept-box li:before{content:counter(concept);display:grid;place-items:center;width:24px;height:24px;background:var(--yellow);border-radius:50%;font:800 .7rem Montserrat;color:var(--navy)}
+.example-box{display:grid;grid-template-columns:110px 1fr;align-items:stretch;margin-bottom:28px;border:1px solid #bcd9df;border-radius:9px;overflow:hidden}.example-box div{display:grid;place-items:center;padding:17px 10px;background:var(--blue);color:white;font-weight:700}.example-box p{margin:0;padding:17px 20px;background:#f4fafb}
+#lessonDialog .dialog-activity{padding:24px;background:var(--cream);border-radius:10px;border-top:3px solid var(--yellow)}
+#lessonDialog .dialog-activity strong{color:var(--navy);font-size:1.08rem}#lessonDialog .dialog-activity p{margin:6px 0 14px}
+#lessonDialog textarea{width:100%;resize:vertical;border:1px solid #cbd4da;border-radius:7px;padding:12px;background:white;outline:none}#lessonDialog textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(36,123,160,.12)}
+.lesson-quiz-section{margin:36px 0 20px;padding-top:28px;border-top:1px dashed #afbec8}.lesson-quiz{margin:18px 0 24px;padding:22px;border:1px solid var(--line);border-radius:10px;background:white}.lesson-quiz>strong{display:block;margin-bottom:13px;color:var(--navy)}.lesson-quiz>div{display:grid;grid-template-columns:1fr 1fr;gap:8px}.lesson-quiz button{display:flex;align-items:center;gap:9px;text-align:left;padding:11px;border:1px solid var(--line);border-radius:7px;background:var(--paper);cursor:pointer;color:var(--ink)}.lesson-quiz button:hover{border-color:var(--blue)}.lesson-quiz button b{display:grid;place-items:center;flex:0 0 24px;height:24px;border-radius:50%;background:var(--cream);font:800 .68rem Montserrat}.lesson-quiz button.correct{border-color:#24977f;background:#eaf8f5}.lesson-quiz button.correct b{background:#24977f;color:white}.lesson-quiz button.wrong{border-color:var(--coral);background:#fff0ee}.lesson-quiz button.wrong b{background:var(--coral);color:white}.lesson-quiz-feedback{min-height:24px;margin:12px 0 0;color:var(--blue);font-size:.87rem;font-weight:700}.lesson-finish{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:var(--navy);color:white;border-radius:10px}.lesson-finish p{margin:0}.lesson-finish .complete-button{margin:0;background:var(--mint);border-color:var(--mint);color:var(--navy)}
+@media(max-width:600px){#lessonDialogContent{padding:0 20px 28px}.lesson-detail-head{grid-template-columns:1fr;padding-top:0}.lesson-detail-head .dialog-lesson-icon{width:55px;height:55px}.lesson-detail-head h2{font-size:1.6rem}.story-box{padding:23px 20px}.example-box{grid-template-columns:1fr}.example-box div{justify-content:start}.lesson-quiz>div{grid-template-columns:1fr}.lesson-finish{display:block}.lesson-finish .complete-button{width:100%;margin-top:10px}}
